@@ -1,0 +1,28 @@
+{
+  "name": "frap-electron",
+  "version": "0.0.1",
+  "description": "FRAP Analysis App using JavaScript and Electron",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "keywords": [
+    "FRAP",
+    "microscopy",
+    "evaluation",
+    "fluorescence",
+    "recovery",
+    "after",
+    "photobleaching",
+    "biology",
+    "cell",
+    "biology"
+  ],
+  "author": "Tom Kache",
+  "license": "MIT",
+  "dependencies": {
+    "csv": "^3.0.0",
+    "electron": "^3.0.0",
+    "fast-csv": "^2.4.1"
+  }
+}

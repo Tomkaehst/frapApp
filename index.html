@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <title>FRAP Electron</title>
+</head>
+
+<body>
+      <h1>FRAP Electron</h1>
+
+      <div id="intro">
+            Welcome to my little <i>FRAP</i> analysis app using electron.js, node.js and JavaScript.
+      </div>
+
+      <div id="input-section">
+            <p>
+                  Use this to load your <em>.csv</em> file for analysis.
+            </p>
+            <p>
+                  <span id="workingDirectoryDisplay"><b>Current working directory:</b> None set.</span>
+            </p>
+
+            <button id="csvSelectBtn">Load Data...</button>
+      </div>
+
+      <div id="fs-debug-section">
+            <span id="fs-filetree"></span>
+      </div>
+
+      <div id="graph">
+
+
+      </div>
+
+      <div id="fitting-parameters">
+
+
+      </div>
+
+      <script>
+            require('./renderer/renderer.js')
+      </script>
+</body>
+
+</html>
