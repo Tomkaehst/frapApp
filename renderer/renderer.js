@@ -15,10 +15,10 @@ csvBtn.addEventListener("click", (event) => {
 
 
 // Receive displayDirectory from receiveCSV.js containing the working directory file path selected by the user, where the CSV files are located; Here we write that path to the <span> with id dataDirectoryDisplay
-ipc.on("displayWorkingDirectory", (path) => {
+ipc.on("displayWorkingDirectory", (event, arg) => {
       let workingDirectoryDisplay = document.getElementById("workingDirectoryDisplay")
-      workingDirectoryDisplay.innerHTML = "<b>Current working directory:</b> '" + path + "'"
-      console.log("displayWorkingDirectory IPC received path " + path)
+      workingDirectoryDisplay.innerHTML = "<b>Current working directory:</b> '" + arg + "'"
+      console.log("displayWorkingDirectory IPC received path " + arg)
 })
 
 

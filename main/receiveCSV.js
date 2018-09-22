@@ -8,10 +8,10 @@ const path = require("path")
 const csv = require("fast-csv")
 
 ipc.on('getCSVviaOpen', (event) => {
-      console.log("Message send from 'getCSVviaOpen'")
+      console.log("Message send from 'getCSVviaOpen' from renderer.js")
 
       dialog.showOpenDialog({
-            title: "Select your FRAP curves...",
+            title: "Select your FRAP files...",
             defaultPath: '/Users/<username>/Documents/',
             buttonLabel: "Choose this directory...",
             properties: ['openDirectory']
@@ -21,7 +21,7 @@ ipc.on('getCSVviaOpen', (event) => {
                   console.log("Now calling locateCSVFiles()...");
 
                   // Send the "working directory" to the index.html via the renderer process
-                  event.sender.send("displayWorkingDirectory", String(directory))
+                  event.sender.send("displayWorkingDirectory", directory)
 
                   // Calling locateCSVFiles() to detect CSVs; this also calls getGroups, which scans the directory for grouping folder for ordered experiment, e.g. treated vs. untreated
                   //var fileList = locateCSVFiles(directory);
