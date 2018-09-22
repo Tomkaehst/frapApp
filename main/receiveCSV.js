@@ -24,9 +24,8 @@ ipc.on('getCSVviaOpen', (event) => {
                   event.sender.send("displayWorkingDirectory", directory)
 
                   // Calling locateCSVFiles() to detect CSVs; this also calls getGroups, which scans the directory for grouping folder for ordered experiment, e.g. treated vs. untreated
-                  //var fileList = locateCSVFiles(directory);
-                  //console.log("locateCSVFiles returned the files: " + fileList);
-
+                  var fileList = locateCSVFiles(directory);
+                  readCSVFile(directory, fileList)
 
             }
       })
@@ -36,15 +35,12 @@ ipc.on('getCSVviaOpen', (event) => {
 // This function identifies CSV files in the directory and subdirectory from the users selection from the cick event on the csvSelectBtn
 function locateCSVFiles(directory) {
       console.log("locateCSVFiles() received: " + directory)
-
       // fs.readdirSync returns an array containing all files and directories in alphabetic order
       var filesInDirectory = fs.readdirSync(String(directory));
-      readCSVFile(directory, filesInDirectory);
-
-
       return (filesInDirectory)
 }
 
+//Get the CSV files / their contents and return them to the IPC on the channel "getCSVviaOpen"
 function readCSVFile(directory, filesList) {
       // Currently, only tau10.csv is selected; I need to figure out a routine how to isolate csv files and sequentially read them; probably conversion to a JSON would be useful at this point
       var filepath = path.join(String(directory), filesList[3])
@@ -60,7 +56,7 @@ function readCSVFile(directory, filesList) {
                   console.log("done")
             });
 
-      stream.pipe(csvStream);
+      return (stream.pipe(csvStream));
 
 }
 
